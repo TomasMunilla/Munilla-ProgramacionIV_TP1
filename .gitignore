@@ -42,3 +42,7 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# mis archivos
+/PROGRAMACION IV - TP #1.pdf
+/notas.txt

@@ -1,0 +1,28 @@
+<section class="github-data">
+    @if (this.githubService.usuarioGithub()) {
+        <img [src]="this.githubService.usuarioGithub().avatar_url" alt="Imagen de usuario">
+        <p>Nombre de usuario: {{this.githubService.usuarioGithub().login}}</p>
+        <p>Nombre: {{this.githubService.usuarioGithub().name}}</p>
+    }
+</section>
+
+<section class="juego-propio-info">
+    <h3>Juego Propio: Simon Says</h3>
+
+    <div class="eleccion">
+        <h4>¿Por qué elegí este juego?</h4>
+        <p>
+            Elegí el Simon Says porque es un desafío clásico que pone a prueba la <b>memoria secuencial</b> y la <b>agilidad motriz</b>. Al ser un juego que escala en dificultad permite medir de forma precisa el progreso y la capacidad cognitiva del usuario,ajustándose perfectamente a los objetivos de la cátedra.
+        </p>
+    </div>
+
+    <div class="reglas">
+        <h4>¿Cómo jugar?</h4>
+        <ul>
+            <li>El juego mostrará una secuencia de colores que deberás memorizar.</li>
+            <li>Al terminar la secuencia, deberás repetirla haciendo clic en los botones en el mismo orden.</li>
+            <li>Si acertás, se sumará un nuevo paso a la secuencia en la siguiente ronda.</li>
+            <li>El juego termina si te equivocás en un color, o hasta llegar al último nivel</li>
+        </ul>
+    </div>
+</section>
