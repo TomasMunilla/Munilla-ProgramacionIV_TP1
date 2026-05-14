@@ -1,4 +1,13 @@
-img.rounded-circle {
-  object-fit: cover;
-  border: 4px solid #fff;
+.github-data {
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+}
+
+.github-data img {
+    margin: 30px 70px;
+    border: 4px solid;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
 }
