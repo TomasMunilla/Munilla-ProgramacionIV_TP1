@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { loginGuard } from './guards/login/login-guard';
 // import { Home } from './components/home/home';
 // import { Login } from './components/login/login';
 // import { Registro } from './components/registro/registro';
@@ -13,11 +14,13 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        loadComponent: () => import('./components/login/login').then((m) => m.Login)
+        loadComponent: () => import('./components/login/login').then((m) => m.Login),
+        canActivate: [loginGuard] // protejo la ruta de login para que no puedan acceder los usuarios autenticados
     },
     {
         path: 'registro',
-        loadComponent: () => import('./components/registro/registro').then((m) => m.Registro)
+        loadComponent: () => import('./components/registro/registro').then((m) => m.Registro),
+        canActivate: [loginGuard]
     },
     {
         path: 'quien-soy',

@@ -1,7 +1,9 @@
 <nav>
     <button routerLink="home">Bienvenida</button>
-    <button routerLink="login">Iniciar Sesión</button>
-    <button routerLink="registro">Registro</button>
+    @if (!haySesion()) {
+        <button routerLink="login">Iniciar Sesión</button>
+        <button routerLink="registro">Registro</button>
+    }
     <button routerLink="quien-soy">Quien Soy</button>
 </nav>
 

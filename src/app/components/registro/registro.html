@@ -1,1 +1,24 @@
-<p>registro works!</p>
+<h2>Registro</h2>
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)"> <!-- ngSubmit es el evento especial de Angular que se dispara cuando se envia el formulario. En este caso, al disparar el evento, se llama al metodo onSubmit -->
+    <label for="email">Email:</label>
+    <input type="email" name="email" ngModel required> <!-- ngModel es una directiva de Angular que vincula el input al formulario. Required indica que el campo es obligatorio. -->
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" ngModel required>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" ngModel required>
+
+    <label for="edad">Edad:</label>
+    <input type="number" name="edad" ngModel required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" ngModel required>
+
+    <button type="submit">Registrar</button>
+</form>
+
+@if (mensajeError) {
+    <p>{{ mensajeError }}</p>
+}

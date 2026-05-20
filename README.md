@@ -18,3 +18,9 @@ Aplicación Sala de Juegos para materia Programación IV
 - Creación de layout principal.
 - Navegación entre componentes. 
 - Funcionalidad - Componente Quién Soy:
+
+
+# Sprint 2
+- Funcionalidad: Registro
+- Funcionalida: Inicio de Sesión
+- Funcionalidad Componente Bienvenida
