@@ -1,1 +1,22 @@
-<p>login works!</p>
+<h2>Iniciar Sesión</h2>
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <label for="email">Email: </label>
+    <input type="email" name="email" ngModel required>
+
+    <label for="password">Contraseña: </label>
+    <input type="password" name="password" ngModel required>
+    
+    <button type="submit">Iniciar Sesión</button>
+</form>
+
+<hr>
+
+<h3>Acceso Rápido</h3>
+<button (click)="accesoRapido('admin@prueba.com', '123456')">Admin</button>
+<button (click)="accesoRapido('jugador@prueba.com', '123456')">Jugador</button>
+<button (click)="accesoRapido('invitado@prueba.com', '123456')">Invitado</button>
+
+@if (mensajeError) {
+    <p>{{ mensajeError }}</p>
+}

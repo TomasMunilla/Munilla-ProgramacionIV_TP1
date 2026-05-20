@@ -1,25 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
+import { GithubUser } from '../models/github-user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GithubService {
-    http = inject(HttpClient);
-    usuario = 'TomasMunilla'
-    apiGithub = 'https://api.github.com/users/';
-    usuarioGithub = signal<any | null>(null);
+    private http = inject(HttpClient);
+    private usuario = 'TomasMunilla'
+    private apiGithub = 'https://api.github.com/users/';
+
+    // signal privado para que el componente no lo pueda modificar
+    private _usuarioGithub = signal<GithubUser | null>(null);
+
+    // signal público de solo lectura que sirve como espejo para que el componente pueda leerlo pero no modificarlo
+    public usuarioGithub = this._usuarioGithub.asReadonly();
 
     obtenerUsuarioGithub() {
-        const peticion = this.http.get<any>(this.apiGithub + this.usuario); // esto es un observable? si, es un observable porque es una peticion http, y las peticiones http en Angular devuelven observables
-
-        const suscripcion = peticion.subscribe((data) => {
+        this.http.get<GithubUser>(this.apiGithub + this.usuario).subscribe((data) => { // Las peticiones hechas con HttpClient devuelven observables finitos; después de emitir la respuesta de la API, ejecutan automaticamente complete(). Cuando el observable se completa, Angular limpia la suscripcion y la memoria, por eso no es necesario hacer un unsubscribe.
             if(data) {
-                console.log(data);
-                this.usuarioGithub.set(data);
+                this._usuarioGithub.set(data);
             }
-
-            suscripcion.unsubscribe();
-        })
+        });
     }
 }

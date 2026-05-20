@@ -1,9 +1,9 @@
 <section class="github-data">
-    @if (this.githubService.usuarioGithub()) {
-        <img [src]="this.githubService.usuarioGithub().avatar_url" alt="Imagen de usuario">
+    @if (nombre() && foto() && nombreUsuario()) {
+        <img [src]="foto()" alt="Imagen de usuario">
         <div>
-            <p>Nombre de usuario: {{this.githubService.usuarioGithub().login}}</p>
-            <p>Nombre: {{this.githubService.usuarioGithub().name}}</p>
+            <p>Nombre de usuario: {{nombreUsuario()}}</p>
+            <p>Nombre: {{nombre()}}</p>
         </div>
     }
 </section>

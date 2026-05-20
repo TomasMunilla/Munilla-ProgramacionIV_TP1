@@ -1,1 +1,9 @@
-<p>home works!</p>
+<h2>Bienvenido a la Sala de Juegos</h2>
+
+@if (haySesion()) {
+  <p>Bienvenido, {{ nombre() }} {{ apellido() }}</p>
+  <button (click)="cerrarSesion()">Cerrar Sesión</button>
+} @else {
+    <button routerLink="/login">Iniciar Sesión</button>
+    <button routerLink="/registro">Registrarse</button>
+}
