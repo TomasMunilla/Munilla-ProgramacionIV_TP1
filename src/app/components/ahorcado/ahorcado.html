@@ -4,6 +4,7 @@
         <p>Tiempo: {{ tiempoTranscurrido }} segundos</p>
         <p>Intentos: {{ letrasProbadas.length }}</p>
         <button (click)="avanzar()">Volver a jugar</button>
+        <button (click)="salir()">Salir al menú</button>
     </div>
 }
 
@@ -12,6 +13,7 @@
         <p>¡Perdiste!</p>
         <p>La palabra era: {{ palabras[indicePalabraActual] }}</p>
         <button (click)="avanzar()">Volver a jugar</button>
+        <button (click)="salir()">Salir al menú</button>
     </div>
 }
 

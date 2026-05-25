@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth-service/auth-service';
 import { SupabaseService } from '../../services/supabase-service/supabase-service';
@@ -9,7 +9,7 @@ import { SupabaseService } from '../../services/supabase-service/supabase-servic
   templateUrl: './ahorcado.html',
   styleUrl: './ahorcado.css',
 })
-export class Ahorcado {
+export class Ahorcado implements OnInit {
     router = inject(Router);
     authService = inject(AuthService);
     private supabaseService = inject(SupabaseService);
@@ -84,5 +84,9 @@ export class Ahorcado {
         tiempo_segundos: this.tiempoTranscurrido,
         resultado: resultado,
     });
+    }
+
+    salir() {
+        this.router.navigate(['/home']);
     }
 }

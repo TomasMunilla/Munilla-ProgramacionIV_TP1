@@ -32,6 +32,16 @@ export const routes: Routes = [
         loadComponent: () => import('./components/ahorcado/ahorcado').then((m) => m.Ahorcado),
         canActivate: [noRegistradoGuard] // protejo la ruta del ahorcado para que solo puedan acceder los usuarios autenticados
     },
+    {
+        path: 'home/mayor-menor',
+        loadComponent: () => import('./components/mayor-menor/mayor-menor').then((m) => m.MayorMenor),
+        canActivate: [noRegistradoGuard]
+    },
+    {
+        path: 'home/chat',
+        loadComponent: () => import('./components/chat/chat').then((m) => m.Chat),
+        canActivate: [noRegistradoGuard]
+    },
     {path: '**', loadComponent: () => import('./components/error/error').then((m) => m.Error)}
 
 ];

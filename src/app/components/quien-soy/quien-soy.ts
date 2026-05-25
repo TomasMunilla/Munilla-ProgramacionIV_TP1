@@ -1,14 +1,13 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject, computed, OnInit } from '@angular/core';
 import { GithubService } from '../../services/github-service';
 
 @Component({
   selector: 'app-quien-soy',
-  standalone: true,
   imports: [],
   templateUrl: './quien-soy.html',
   styleUrl: './quien-soy.css',
 })
-export class QuienSoy {
+export class QuienSoy implements OnInit{
     private githubService = inject(GithubService);
 
     // Signals computadas. Se actualizan solas cuando el servicio recibe los datos:

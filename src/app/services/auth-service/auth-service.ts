@@ -6,6 +6,7 @@ import { SupabaseService } from '../supabase-service/supabase-service';
 export class AuthService {
     private _sesionActiva = signal<any>(null);
     public sesionActiva = this._sesionActiva.asReadonly();
+
     constructor(private supabaseService: SupabaseService) {
         this.supabaseService.supabase.auth.onAuthStateChange((event, session) => {
             if (session?.user) {
@@ -20,6 +21,19 @@ export class AuthService {
             }
         });
     }
+
+    async esperarInicializacion(): Promise<void> {
+        const { data: { session } } = await this.supabaseService.supabase.auth.getSession();
+        if (session?.user) { // el ? es para verificar que session no sea null antes de acceder a user
+            this._sesionActiva.set({
+                ...session.user,
+                nombre: '',
+                apellido: '',
+            });
+            this.cargarPerfil(session.user.id, session.user);
+        }
+    }
+
     private async cargarPerfil(userId: string, user: any) {
         const { data: perfil } = await this.supabaseService.supabase
             .from('usuarios')
@@ -34,6 +48,7 @@ export class AuthService {
             });
         }
     }
+
     async registrar(email: string, password: string, nombre: string, apellido: string, edad: number) {
         const { data, error } = await this.supabaseService.supabase.auth.signUp({
             email: email,
@@ -52,6 +67,7 @@ export class AuthService {
         }
         return data;
     }
+
     async iniciarSesion(email: string, password: string) {
         const { data, error } = await this.supabaseService.supabase.auth.signInWithPassword({
             email: email,
@@ -60,6 +76,7 @@ export class AuthService {
         if (error) throw error;
         return data;
     }
+
     async cerrarSesion() {
         const { error } = await this.supabaseService.supabase.auth.signOut();
         if (error) throw error;

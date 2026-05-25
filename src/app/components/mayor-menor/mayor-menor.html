@@ -1,0 +1,23 @@
+@if (termino()) {
+<div>
+    <p>¡Perdiste!</p>
+    <p>Puntaje: {{ puntaje() }} aciertos</p>
+    <button (click)="iniciarJuego()">Volver a jugar</button>
+    <button (click)="salir()">Salir al menú</button>
+</div>
+<!-- Si el juego sigue activo y hay una carta, mostramos la interfaz de juego -->
+} @else if (cartaActual()) {
+    <!-- Imagen de la carta actual -->
+    <img [src]="cartaActual()!.image" alt="Carta">
+    <p>¿La próxima carta será mayor o menor?</p>
+    <p>Puntaje: {{ puntaje() }}</p>
+    <!-- Botones para elegir -->
+    <button (click)="elegir('Mayor')">Mayor</button>
+    <button (click)="elegir('Menor')">Menor</button>
+
+    <button (click)="salir()">Salir al menú</button>
+}
+<!-- Si hay un error, lo mostramos -->
+@if (mensajeError()) {
+    <p>{{ mensajeError() }}</p>
+}
