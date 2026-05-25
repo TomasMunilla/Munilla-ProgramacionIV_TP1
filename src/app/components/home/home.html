@@ -2,8 +2,13 @@
 
 @if (haySesion()) {
   <p>Bienvenido, {{ nombre() }} {{ apellido() }}</p>
-  <button (click)="cerrarSesion()">Cerrar Sesión</button>
 } @else {
     <button routerLink="/login">Iniciar Sesión</button>
     <button routerLink="/registro">Registrarse</button>
 }
+
+<div class="menu">
+    @if (haySesion()) {
+        <button routerLink="ahorcado">Ahorcado</button>
+    }
+</div>

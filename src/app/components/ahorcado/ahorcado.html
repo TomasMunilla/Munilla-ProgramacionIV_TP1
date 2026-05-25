@@ -1,0 +1,38 @@
+@if (mostrarMensajeVictoria()) {
+    <div class="overlay">
+        <p>¡Ganaste!</p>
+        <p>Tiempo: {{ tiempoTranscurrido }} segundos</p>
+        <p>Intentos: {{ letrasProbadas.length }}</p>
+        <button (click)="avanzar()">Volver a jugar</button>
+    </div>
+}
+
+@if (mostrarMensajeDerrota()) {
+    <div class="overlay">
+        <p>¡Perdiste!</p>
+        <p>La palabra era: {{ palabras[indicePalabraActual] }}</p>
+        <button (click)="avanzar()">Volver a jugar</button>
+    </div>
+}
+
+@if (!mostrarMensajeVictoria() && !mostrarMensajeDerrota()) {
+    <div class="imagen-ahorcado">
+        <img [src]="'assets/ahorcado/' + intentosFallidos + '.jpg'" alt="Ahorcado">
+    </div>
+    <div class="palabra-oculta">
+        @for (letra of palabraActual; track $index) {
+            <span>{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+        }
+    </div>
+
+    <div class="letras">
+        @for (letra of 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split(''); track $index) {
+            <button
+                (click)="seleccionarLetra(letra)"
+                [disabled]="letrasProbadas.includes(letra) || intentosFallidos >= maxIntentos"
+            >
+                {{ letra }}
+            </button>
+        }
+    </div>
+}

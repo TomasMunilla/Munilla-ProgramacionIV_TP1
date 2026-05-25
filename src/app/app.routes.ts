@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { loginGuard } from './guards/login/login-guard';
+import { noRegistradoGuard } from './guards/no-registrado/no-registrado-guard';
 // import { Home } from './components/home/home';
 // import { Login } from './components/login/login';
 // import { Registro } from './components/registro/registro';
@@ -25,6 +26,11 @@ export const routes: Routes = [
     {
         path: 'quien-soy',
         loadComponent: () => import('./components/quien-soy/quien-soy').then((m) => m.QuienSoy)
+    },
+    {
+        path: 'home/ahorcado',
+        loadComponent: () => import('./components/ahorcado/ahorcado').then((m) => m.Ahorcado),
+        canActivate: [noRegistradoGuard] // protejo la ruta del ahorcado para que solo puedan acceder los usuarios autenticados
     },
     {path: '**', loadComponent: () => import('./components/error/error').then((m) => m.Error)}
 

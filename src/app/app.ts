@@ -13,4 +13,11 @@ export class App {
     protected haySesion = computed(() => this.authService.sesionActiva() !== null); // si hay una sesión activa, haySesion será true, de lo contrario será false
 
     protected readonly title = signal('Munilla-ProgramacionIV_TP1');
+
+    nombre = computed(() => this.authService.sesionActiva()?.nombre ?? ''); 
+    apellido = computed(() => this.authService.sesionActiva()?.apellido ?? '');
+
+    cerrarSesion() {
+        this.authService.cerrarSesion();
+    }
 }
