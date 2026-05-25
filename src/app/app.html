@@ -5,7 +5,12 @@
         <button routerLink="registro">Registro</button>
     }
     <button routerLink="quien-soy">Quien Soy</button>
+    @if (haySesion()) {
+
+        
+        <button (click)="cerrarSesion()">Cerrar Sesión</button>
+    }
+    <p class="nombre-usuario">{{ nombre() }} {{ apellido() }}</p>
 </nav>
 
-<h1>Programación IV - TP 1</h1>
 <router-outlet />

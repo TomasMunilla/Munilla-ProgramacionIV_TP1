@@ -1,0 +1,19 @@
+<div class="chat-container">
+
+    <div class="mensajes">
+        @for (mensaje of mensajes(); track mensaje.id) {
+        <div [class.mensaje-propio]="esMensajePropio(mensaje)" [class.mensaje-otro]="!esMensajePropio(mensaje)">
+            <p class="email">{{ mensaje.usuario_email }}</p>
+            <p class="texto">{{ mensaje.mensaje }}</p>
+            <p class="fecha">{{ mensaje.fecha | date:'HH:mm' }}</p>
+        </div>
+        }
+    </div>
+
+    <div class="input-container">
+        <input [(ngModel)]="textoMensaje" (keyup.enter)="enviarMensaje()" placeholder="Escribí un mensaje...">
+        <button (click)="enviarMensaje()">Enviar</button>
+    </div>
+
+    <button (click)="salir()">Salir al menú</button>
+</div>

@@ -1,0 +1,34 @@
+nav {
+    background-color: var(--fondo-nav);
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border-bottom: 2px solid var(--acento);
+}
+
+nav button {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--texto-principal);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+nav button:hover {
+    border-color: var(--acento);
+    color: var(--acento);
+}
+
+.nombre-usuario {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--texto-principal);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}

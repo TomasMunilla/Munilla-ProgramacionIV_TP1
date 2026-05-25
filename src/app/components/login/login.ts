@@ -4,10 +4,10 @@ import { AuthService } from '../../services/auth-service/auth-service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  imports: [FormsModule],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+    selector: 'app-login',
+    imports: [FormsModule],
+    templateUrl: './login.html',
+    styleUrl: './login.css',
 })
 export class Login {
     private authService = inject(AuthService);
@@ -31,7 +31,7 @@ export class Login {
 
     async accesoRapido(email: string, password: string) {
         this.mensajeError = null;
-        
+
         try {
             await this.authService.iniciarSesion(email, password);
             this.router.navigate(['/home']);
