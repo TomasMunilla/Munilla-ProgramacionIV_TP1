@@ -1,3 +1,4 @@
+<h2>¿Mayor o Menor?</h2>
 @if (termino()) {
 <div>
     <p>¡Perdiste!</p>
@@ -12,10 +13,13 @@
     <p>¿La próxima carta será mayor o menor?</p>
     <p>Puntaje: {{ puntaje() }}</p>
     <!-- Botones para elegir -->
-    <button (click)="elegir('Mayor')">Mayor</button>
-    <button (click)="elegir('Menor')">Menor</button>
 
-    <button (click)="salir()">Salir al menú</button>
+    <div class="botones-juego">
+        <button (click)="elegir('Mayor')">Mayor</button>
+        <button (click)="elegir('Menor')">Menor</button>
+    </div>
+
+    <button class="salir" (click)="salir()">Salir al menú</button>
 }
 <!-- Si hay un error, lo mostramos -->
 @if (mensajeError()) {

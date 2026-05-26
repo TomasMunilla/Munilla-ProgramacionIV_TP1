@@ -1,0 +1,33 @@
+<h2>Preguntados</h2>
+@if (mostrarFinJuego()) {
+    <div>
+        <p>Fin del Juego</p>
+        <p>Aciertos: {{ aciertos }}</p>
+    </div>
+}
+
+ @if (preguntaActual() && !mostrarFinJuego()) {
+    <div class="pregunta-card">
+        <p class="pregunta-texto">{{ preguntaActual() }}</p>
+    </div>
+
+    <div class="respuestas">
+        @for (respuesta of posiblesRespuestas(); track $index) {
+            <button
+                class="respuesta-btn"
+                [class.correcta]="respuestaSeleccionada() && respuesta === respuestaCorrecta()"
+                [class.incorrecta]="respuestaSeleccionada() && respuestaSeleccionada() === respuesta && respuesta !== respuestaCorrecta()"
+                (click)="responder(respuesta)"
+                [disabled]="respuestaSeleccionada()"
+            >
+                {{ respuesta }}
+            </button>
+        }
+    </div>
+
+    @if (respuestaSeleccionada() && !mostrarFinJuego()) {
+        <button class="btn-siguiente" (click)="avanzar()">Siguiente pregunta</button>
+    }
+}
+
+<button (click)="salir()">Salir</button>

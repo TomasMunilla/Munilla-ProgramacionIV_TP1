@@ -7,15 +7,17 @@
     <label for="password">Contraseña: </label>
     <input type="password" name="password" ngModel required>
     
-    <button type="submit">Iniciar Sesión</button>
+    <button type="submit" [disabled]="form.invalid">Iniciar Sesión</button>
 </form>
 
 <hr>
 
 <h3>Acceso Rápido</h3>
-<button (click)="accesoRapido('admin@prueba.com', '123456')">Admin</button>
-<button (click)="accesoRapido('jugador@prueba.com', '123456')">Jugador</button>
-<button (click)="accesoRapido('invitado@prueba.com', '123456')">Invitado</button>
+<div class="accesos-rapidos">
+    <button (click)="accesoRapido('admin@prueba.com', '123456')">Admin</button>
+    <button (click)="accesoRapido('jugador@prueba.com', '123456')">Jugador</button>
+    <button (click)="accesoRapido('invitado@prueba.com', '123456')">Invitado</button>
+</div>
 
 @if (mensajeError) {
     <p>{{ mensajeError }}</p>

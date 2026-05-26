@@ -3,12 +3,17 @@
 @if (haySesion()) {
   <p>Bienvenido, {{ nombre() }} {{ apellido() }}</p>
 } @else {
-    <button routerLink="/login">Iniciar Sesión</button>
-    <button routerLink="/registro">Registrarse</button>
+    <div class="acciones">
+        <button routerLink="/login">Iniciar Sesión</button>
+        <button routerLink="/registro">Registrarse</button>
+    </div>
 }
 
 <div class="menu">
     <button routerLink="ahorcado">Ahorcado</button>
     <button routerLink="mayor-menor">Mayor o Menor</button>
     <button routerLink="chat">Sala de chat</button>
+    <button routerLink="preguntados">Preguntados</button>
+    <button routerLink="simon-dice">Simón Dice</button>
+    <button routerLink="listados">Resultados</button>
 </div>

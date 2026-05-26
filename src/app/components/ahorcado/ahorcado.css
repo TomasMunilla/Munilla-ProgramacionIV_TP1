@@ -1,0 +1,88 @@
+h2 {
+    color: black;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+}
+.imagen-ahorcado {
+    text-align: center;
+    margin: 20px 0;
+}
+.imagen-ahorcado img {
+    max-width: 200px;
+    border-radius: 12px;
+}
+.palabra-oculta {
+    text-align: center;
+    margin: 24px 0;
+    font-size: 32px;
+    letter-spacing: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.letras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.letras button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--fondo-tarjeta);
+    color: var(--texto-principal);
+    border: 1px solid #334155;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+.letras button:hover:not(:disabled) {
+    border-color: var(--acento);
+    color: var(--acento);
+}
+.letras button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.overlay p {
+    color: var(--acento);
+    font-size: 28px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+.overlay p:first-child {
+    font-size: 36px;
+}
+.overlay button {
+    padding: 12px 24px;
+    margin: 8px;
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.overlay button:hover {
+    background-color: var(--acento-hover);
+}

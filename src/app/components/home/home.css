@@ -1,0 +1,53 @@
+h2 {
+    color: black;
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 28px;
+}
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+.menu button {
+    background-color: var(--fondo-tarjeta);
+    color: var(--texto-principal);
+    border: 3px solid transparent;
+    padding: 24px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+.menu button:hover {
+    border-color: var(--acento);
+    box-shadow: 0 0 15px rgba(249, 198, 15, 0.15);
+}
+p {
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.acciones {
+    text-align: center;
+    margin: 20px 0;
+}
+.acciones button {
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    margin: 0 10px;
+}
+.acciones button:hover {
+    background-color: var(--acento-hover);
+}

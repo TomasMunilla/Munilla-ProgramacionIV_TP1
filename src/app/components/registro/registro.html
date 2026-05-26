@@ -16,7 +16,7 @@
     <label for="password">Password:</label>
     <input type="password" name="password" ngModel required>
 
-    <button type="submit">Registrar</button>
+    <button type="submit" [disabled]="form.invalid">Registrar</button>
 </form>
 
 @if (mensajeError) {

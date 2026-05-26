@@ -42,6 +42,21 @@ export const routes: Routes = [
         loadComponent: () => import('./components/chat/chat').then((m) => m.Chat),
         canActivate: [noRegistradoGuard]
     },
+    {
+        path: 'home/preguntados',
+        loadComponent: () => import('./components/preguntados/preguntados').then((m) => m.Preguntados),
+        canActivate: [noRegistradoGuard]                
+    },
+    {
+        path: 'home/simon-dice',
+        loadComponent: () => import('./components/simon-dice/simon-dice').then((m) => m.SimonDice),
+        canActivate: [noRegistradoGuard]
+    },
+    {
+        path: 'home/listados',
+        loadComponent: () => import('./components/listados/listados').then((m) => m.Listados),
+        canActivate: [noRegistradoGuard]
+    },
     {path: '**', loadComponent: () => import('./components/error/error').then((m) => m.Error)}
 
 ];

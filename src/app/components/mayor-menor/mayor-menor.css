@@ -1,0 +1,51 @@
+h2 {
+    color: black;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+}
+p {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 18px;
+}
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+button {
+    padding: 14px 32px;
+    margin: 8px;
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+button:hover {
+    background-color: var(--acento-hover);
+}
+button.salir {
+    background-color: transparent;
+    color: #334155;
+    border: 1px solid #334155;
+    font-size: 14px;
+    padding: 8px 16px;
+    display: block;
+    margin: 20px auto;
+}
+button.salir:hover {
+    border-color: var(--acento);
+}
+
+.botones-juego {
+    text-align: center;
+    margin: 16px 0;
+}
