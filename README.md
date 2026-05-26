@@ -24,3 +24,13 @@ Aplicación Sala de Juegos para materia Programación IV
 - Funcionalidad: Registro
 - Funcionalida: Inicio de Sesión
 - Funcionalidad Componente Bienvenida
+
+# Sprint 3
+- Juego: Ahorcado
+- Juego: Mayor o Menor
+- Sala de chat realtime
+
+# Sprint 4
+- Juego: Preguntados
+- Juego: Simón Dice
+- Listados de resultados y puntajes de juegos.
