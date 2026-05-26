@@ -8,7 +8,8 @@ import { noRegistradoGuard } from './guards/no-registrado/no-registrado-guard';
 // import path from 'path';
 
 export const routes: Routes = [
-    { path: '',redirectTo: '/home', pathMatch:'full' },
+    //{ path: '',redirectTo: '/home', pathMatch:'full' },
+    {path: '', loadComponent: () => import('./components/home/home').then((m) => m.Home)},
     {
         path: 'home',
         loadComponent: () => import('./components/home/home').then((m) => m.Home)

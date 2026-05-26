@@ -15,8 +15,8 @@ export class App {
 
     protected readonly title = signal('Munilla-ProgramacionIV_TP1');
 
-    nombre = computed(() => this.authService.sesionActiva()?.nombre ?? ''); 
-    apellido = computed(() => this.authService.sesionActiva()?.apellido ?? '');
+    protected nombre = computed(() => this.authService.sesionActiva()?.nombre ?? ''); 
+    protected apellido = computed(() => this.authService.sesionActiva()?.apellido ?? '');
 
     cerrarSesion() {
         this.authService.cerrarSesion();

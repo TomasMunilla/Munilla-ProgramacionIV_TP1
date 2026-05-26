@@ -10,18 +10,18 @@ import { AuthService } from '../../services/auth-service/auth-service';
   styleUrl: './simon-dice.css',
 })
 export class SimonDice {
-    supabaseService = inject(SupabaseService);
-    router = inject(Router);
-    authService = inject(AuthService)
+    private supabaseService = inject(SupabaseService);
+    private router = inject(Router);
+    private authService = inject(AuthService)
 
-    coloresDisponibles = ['rojo', 'verde', 'azul', 'amarillo'];
-    secuencia: string[] = []; // la secuencia de colores que el jugador tiene que repetir
-    indiceJugador = 0;  // en que paso de la secuencia esta el jugador
+    private coloresDisponibles = ['rojo', 'verde', 'azul', 'amarillo'];
+    private secuencia: string[] = []; // la secuencia de colores que el jugador tiene que repetir
+    private indiceJugador = 0;  // en que paso de la secuencia esta el jugador
 
-    puntaje = signal(0);
-    termino = signal(false); // true cuando se pierde
-    mostrando = signal(false); // es true cuando la maquina esta mostrando la secuencia
-    colorIluminado = signal<string | null>(null);
+    protected puntaje = signal(0);
+    protected termino = signal(false); // true cuando se pierde
+    protected mostrando = signal(false); // es true cuando la maquina esta mostrando la secuencia
+    protected colorIluminado = signal<string | null>(null);
 
     iniciarJuego() {
         this.secuencia = [];

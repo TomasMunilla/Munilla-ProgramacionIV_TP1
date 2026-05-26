@@ -14,10 +14,10 @@ export class Listados implements OnInit {
     private router = inject(Router);
 
     // Arrays para guardar las partidas de cada juego
-    partidasAhorcado = signal<any[]>([]);
-    partidasMayorMenor = signal<any[]>([]);
-    partidasPreguntados = signal<any[]>([]);
-    partidasSimonDice = signal<any[]>([]);
+    protected partidasAhorcado = signal<any[]>([]);
+    protected partidasMayorMenor = signal<any[]>([]);
+    protected partidasPreguntados = signal<any[]>([]);
+    protected partidasSimonDice = signal<any[]>([]);
 
     async ngOnInit() {
         

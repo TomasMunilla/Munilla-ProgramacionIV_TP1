@@ -24,10 +24,10 @@ export class MayorMenor implements OnInit {
     private router = inject(Router);
 
     
-    cartaActual = signal<Carta | null>(null); // Carta visible en pantalla
-    puntaje = signal(0); // Aciertos consecutivos
-    termino = signal(false);
-    mensajeError = signal<string | null>(null); // Mensaje de error si algo falla
+    protected cartaActual = signal<Carta | null>(null); // Carta visible en pantalla
+    protected puntaje = signal(0); // Aciertos consecutivos
+    protected termino = signal(false);
+    protected mensajeError = signal<string | null>(null); // Mensaje de error si algo falla
     
     private deckId = '';
     

@@ -11,20 +11,20 @@ import { Router } from '@angular/router';
   styleUrl: './preguntados.css',
 })
 export class Preguntados implements OnInit {
-    preguntadosService = inject(PreguntadosService);
-    router = inject(Router);
+    private preguntadosService = inject(PreguntadosService);
+    private router = inject(Router);
     private authService = inject(AuthService);
     private supabaseService = inject(SupabaseService);
 
-    preguntas: any[] = [];
-    indicePreguntaActual: number = 0;
-    aciertos: number = 0;
+    private preguntas: any[] = [];
+    private indicePreguntaActual: number = 0;
+    private aciertos: number = 0;
 
-    preguntaActual = signal<string>('');
-    respuestaCorrecta = signal<string>('');
-    posiblesRespuestas = signal<string[]>([]);
-    respuestaSeleccionada = signal<string | null>(null);
-    mostrarFinJuego = signal(false);
+    protected preguntaActual = signal<string>('');
+    protected respuestaCorrecta = signal<string>('');
+    protected posiblesRespuestas = signal<string[]>([]);
+    protected respuestaSeleccionada = signal<string | null>(null);
+    protected mostrarFinJuego = signal(false);
 
     async ngOnInit() {
         this.preguntas = await this.preguntadosService.obtenerPreguntas();

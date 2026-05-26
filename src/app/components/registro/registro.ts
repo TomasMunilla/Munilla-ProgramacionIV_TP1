@@ -14,7 +14,7 @@ export class Registro {
     
     private authService = inject(AuthService);
     private router = inject(Router);
-    mensajeError: string | null = null;
+    protected mensajeError: string | null = null;
     
     async onSubmit(form: any) {
         this.mensajeError = null;

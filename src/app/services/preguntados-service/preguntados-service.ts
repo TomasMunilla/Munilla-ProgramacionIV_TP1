@@ -6,7 +6,7 @@ import { firstValueFrom } from 'rxjs';
   providedIn: 'root',
 })
 export class PreguntadosService {
-    http = inject(HttpClient);
+    private http = inject(HttpClient);
     private apiUrl = 'https://opentdb.com/api.php?amount=10&category=15&type=multiple';
 
     async obtenerPreguntas() { 

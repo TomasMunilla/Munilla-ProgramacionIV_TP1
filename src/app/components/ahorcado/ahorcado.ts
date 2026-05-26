@@ -10,24 +10,24 @@ import { SupabaseService } from '../../services/supabase-service/supabase-servic
   styleUrl: './ahorcado.css',
 })
 export class Ahorcado implements OnInit {
-    router = inject(Router);
-    authService = inject(AuthService);
+    private router = inject(Router);
+    private authService = inject(AuthService);
     private supabaseService = inject(SupabaseService);
 
-    palabras:string[] = ['AMIGOS', 'CAMPERA', "PELOTA","ELEFANTE","LOBO","COLECTIVO","COMPUTADORA","ARQUITECTURA","CAFE","CELULAR","PERRO","VENTANA","REMERA","ZAPATILLAS","ESCRITORIO"]; 
+    private palabras:string[] = ['AMIGOS', 'CAMPERA', "PELOTA","ELEFANTE","LOBO","COLECTIVO","COMPUTADORA","ARQUITECTURA","CAFE","CELULAR","PERRO","VENTANA","REMERA","ZAPATILLAS","ESCRITORIO"]; 
     
-    indicePalabraActual: number = 0;
-    palabraActual: string[] = [];       // palabra actual separada en letras
-    letrasAdivinadas: string[] = [];    // letras que el usuario lleva acertadas
-    letrasProbadas: string[] = [];      // letras que el usuario ha seleccionado (acertadas o no)
-    intentosFallidos = 0;
-    maxIntentos = 6;
+    private indicePalabraActual: number = 0;
+    private palabraActual: string[] = [];       // palabra actual separada en letras
+    private letrasAdivinadas: string[] = [];    // letras que el usuario lleva acertadas
+    private letrasProbadas: string[] = [];      // letras que el usuario ha seleccionado (acertadas o no)
+    private intentosFallidos = 0;
+    private maxIntentos = 6;
 
     private tiempoInicio: number = 0; 
-    tiempoTranscurrido: number = 0; 
+    private tiempoTranscurrido: number = 0; 
 
-    mostrarMensajeVictoria = signal(false);
-    mostrarMensajeDerrota = signal(false);
+    protected mostrarMensajeVictoria = signal(false);
+    protected mostrarMensajeDerrota = signal(false);
 
     ngOnInit() {
         // Mezcla la lista de palabras al azar

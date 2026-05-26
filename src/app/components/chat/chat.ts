@@ -25,8 +25,8 @@ export class Chat implements OnInit, OnDestroy {
     private authService = inject(AuthService);
     private router = inject(Router);
     
-    mensajes = signal<Mensaje[]>([]); // Lista de mensajes
-    textoMensaje = ''; // Texto del input
+    protected mensajes = signal<Mensaje[]>([]); // Lista de mensajes
+    protected textoMensaje = ''; // Texto del input
     private canal: RealtimeChannel | null = null; // Canal de suscripción en tiempo real
     
     async ngOnInit() {
