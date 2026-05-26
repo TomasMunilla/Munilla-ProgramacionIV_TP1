@@ -27,25 +27,29 @@ export class Listados implements OnInit {
             .from('partidas_ahorcado')
             .select('*')
             .eq('usuario_email', email)
-            .order('fecha', { ascending: false });
+            .order('fecha', { ascending: false })
+            .limit(5);
         if (a) this.partidasAhorcado.set(a);
         
         const { data: b } = await this.supabaseService.supabase
             .from('partidas_mayor_menor').select('*')
             .eq('usuario_email', email)
-            .order('fecha', { ascending: false });
+            .order('fecha', { ascending: false })
+            .limit(5);
         if (b) this.partidasMayorMenor.set(b);
         
         const { data: c } = await this.supabaseService.supabase
             .from('partidas_preguntados').select('*')
             .eq('usuario_email', email)
-            .order('fecha', { ascending: false });
+            .order('fecha', { ascending: false })
+            .limit(5);
         if (c) this.partidasPreguntados.set(c);
         
         const { data: d } = await this.supabaseService.supabase
             .from('partidas_simon_dice')
             .select('*').eq('usuario_email', email)
-            .order('fecha', { ascending: false });
+            .order('fecha', { ascending: false })
+            .limit(5);
         if (d) this.partidasSimonDice.set(d);
     }
 
