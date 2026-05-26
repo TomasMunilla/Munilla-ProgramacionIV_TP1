@@ -1,0 +1,23 @@
+@if (!termino() && secuencia.length === 0) {
+    <button (click)="iniciarJuego()">Comenzar</button>
+}
+
+@if (secuencia.length > 0 && !termino()) {
+    <p>Puntaje: {{ puntaje() }}</p>
+    <div class="tablero">
+        @for (color of coloresDisponibles; track color) {
+            <button
+                class="boton {{ color }}"
+                [class.iluminado]="colorIluminado() === color"
+                [disabled]="mostrando() || termino()"
+                (click)="elegirColor(color)"
+            ></button>
+        }
+    </div>
+}
+@if (termino()) {
+    <p>Fin del juego</p>
+    <p>Puntaje: {{ puntaje() }}</p>
+    <button (click)="iniciarJuego()">Jugar de nuevo</button>
+    <button (click)="salir()">Salir</button>
+}
