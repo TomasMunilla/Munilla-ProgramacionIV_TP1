@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth-service/auth-service';
 import { SupabaseService } from '../../services/supabase-service/supabase-service';
@@ -14,10 +14,10 @@ export class Listados implements OnInit {
     private router = inject(Router);
 
     // Arrays para guardar las partidas de cada juego
-    partidasAhorcado: any[] = [];
-    partidasMayorMenor: any[] = [];
-    partidasPreguntados: any[] = [];
-    partidasSimonDice: any[] = [];
+    partidasAhorcado = signal<any[]>([]);
+    partidasMayorMenor = signal<any[]>([]);
+    partidasPreguntados = signal<any[]>([]);
+    partidasSimonDice = signal<any[]>([]);
 
     async ngOnInit() {
         
@@ -28,25 +28,25 @@ export class Listados implements OnInit {
             .select('*')
             .eq('usuario_email', email)
             .order('fecha', { ascending: false });
-        if (a) this.partidasAhorcado = a;
+        if (a) this.partidasAhorcado.set(a);
         
         const { data: b } = await this.supabaseService.supabase
             .from('partidas_mayor_menor').select('*')
             .eq('usuario_email', email)
             .order('fecha', { ascending: false });
-        if (b) this.partidasMayorMenor = b;
+        if (b) this.partidasMayorMenor.set(b);
         
         const { data: c } = await this.supabaseService.supabase
             .from('partidas_preguntados').select('*')
             .eq('usuario_email', email)
             .order('fecha', { ascending: false });
-        if (c) this.partidasPreguntados = c;
+        if (c) this.partidasPreguntados.set(c);
         
         const { data: d } = await this.supabaseService.supabase
             .from('partidas_simon_dice')
             .select('*').eq('usuario_email', email)
             .order('fecha', { ascending: false });
-        if (d) this.partidasSimonDice = d;
+        if (d) this.partidasSimonDice.set(d);
     }
 
     salir() {

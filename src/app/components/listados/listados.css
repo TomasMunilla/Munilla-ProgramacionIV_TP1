@@ -1,0 +1,43 @@
+h2 {
+    color: black;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+}
+.seccion {
+    max-width: 600px;
+    margin: 0 auto 16px;
+    padding: 16px 20px;
+    background-color: var(--fondo-tarjeta);
+    border-radius: 12px;
+}
+.seccion h3 {
+    color: var(--amarillo);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.seccion p {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--acento);
+    font-size: 15px;
+    color: var(--texto-principal);
+}
+.seccion p:last-child {
+    border-bottom: none;
+}
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+button:hover {
+    background-color: var(--acento-hover);
+}

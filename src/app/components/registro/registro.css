@@ -1,0 +1,62 @@
+h2 {
+    color: black;
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 28px;
+}
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: var(--fondo-tarjeta);
+    border-radius: 12px;
+}
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--texto-principal);
+}
+input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    background-color: var(--fondo-principal);
+    border: 1px solid #334155;
+    border-radius: 6px;
+    color: var(--texto-principal);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+input:focus {
+    border-color: var(--acento);
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+button[type="submit"]:hover {
+    background-color: var(--acento-hover);
+}
+p {
+    text-align: center;
+    color: var(--error);
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input.ng-invalid.ng-touched {
+    border-color: var(--error);
+}
+input.ng-valid.ng-touched {
+    border-color: var(--exito);
+}

@@ -3,8 +3,10 @@
 @if (haySesion()) {
   <p>Bienvenido, {{ nombre() }} {{ apellido() }}</p>
 } @else {
-    <button routerLink="/login">Iniciar Sesión</button>
-    <button routerLink="/registro">Registrarse</button>
+    <div class="acciones">
+        <button routerLink="/login">Iniciar Sesión</button>
+        <button routerLink="/registro">Registrarse</button>
+    </div>
 }
 
 <div class="menu">

@@ -1,12 +1,18 @@
 nav {
     background-color: var(--fondo-nav);
-    padding: 16px;
+    backdrop-filter: blur(4px);
+    padding: 14px 20px;
     display: flex;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
     border-bottom: 2px solid var(--acento);
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
-
 nav button {
     background: transparent;
     border: 1px solid transparent;
@@ -14,21 +20,25 @@ nav button {
     padding: 8px 16px;
     cursor: pointer;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 14px;
     transition: all 0.2s ease;
 }
-
 nav button:hover {
     border-color: var(--acento);
     color: var(--acento);
 }
-
 .nombre-usuario {
-    background: transparent;
-    border: 1px solid transparent;
-    color: var(--texto-principal);
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 15px;
-    transition: all 0.2s ease;
+    margin-left: auto;
+    color: var(--acento);
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+}
+router-outlet + * {
+    display: block;
+    padding: 24px;
+    max-width: 900px;
+    margin: 20px auto;
+    background: var(--fondo-tarjeta);
+    border-radius: 12px;
 }

@@ -16,18 +16,22 @@ export class Login {
     mensajeError: string | null = null;
 
     async onSubmit(form: any) {
-        console.log('onSubmit llamado', form.value);
-        this.mensajeError = null; // reseteo el mensaje de error cada vez que se intenta iniciar sesion
-
-        try {
-            const { email, password } = form.value;
-            await this.authService.iniciarSesion(email, password);
-            this.router.navigate(['/home']);
-        } catch (error: any) {
-            console.error('Error completo:', error);
-            this.mensajeError = error.message;
-        }
+    console.log('onSubmit llamado', form.value);
+    this.mensajeError = null; // reseteo el mensaje de error cada vez que se intenta iniciar sesion
+    if (form.invalid) return;
+    const { email, password } = form.value;
+    if (!email || !password) {
+        this.mensajeError = 'Completá todos los campos.';
+        return;
     }
+    try {
+        await this.authService.iniciarSesion(email, password);
+        this.router.navigate(['/home']);
+    } catch (error: any) {
+        console.error('Error completo:', error);
+        this.mensajeError = error?.message || error || 'Error al iniciar sesión. Verificá tus credenciales.';
+    }
+}
 
     async accesoRapido(email: string, password: string) {
         this.mensajeError = null;

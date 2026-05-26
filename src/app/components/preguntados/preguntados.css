@@ -1,0 +1,92 @@
+h2 {
+    color: black;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+}
+.pregunta-card {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    padding: 24px;
+    background-color: var(--fondo-tarjeta);
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+.pregunta-texto {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+}
+.respuestas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.respuesta-btn {
+    padding: 14px 20px;
+    background-color: var(--fondo-tarjeta);
+    color: var(--texto-principal);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+.respuesta-btn:hover:not(:disabled) {
+    border-color: var(--acento);
+}
+.respuesta-btn:disabled {
+    cursor: default;
+}
+.respuesta-btn.correcta {
+    background-color: var(--exito);
+    color: #1a1a2e;
+    border-color: var(--exito);
+    font-weight: bold;
+}
+.respuesta-btn.incorrecta {
+    background-color: var(--error);
+    color: white;
+    border-color: var(--error);
+    font-weight: bold;
+}
+.btn-siguiente {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 28px;
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-siguiente:hover {
+    background-color: var(--acento-hover);
+}
+button:last-of-type:not(.btn-siguiente):not(.respuesta-btn) {
+    display: block;
+    margin: 20px auto;
+    padding: 8px 16px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+button:last-of-type:not(.btn-siguiente):not(.respuesta-btn):hover {
+    border-color: var(--acento);
+}
+p {
+    text-align: center;
+    color: var(--acento);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}

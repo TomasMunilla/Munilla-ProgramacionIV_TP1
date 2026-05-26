@@ -6,13 +6,15 @@
 
 :root {
     --fondo-principal: #1a1a2e;
-    --fondo-nav: #0f0f23;
-    --fondo-tarjeta: #16213e;
+    --fondo-nav: #000000;
+    --fondo-tarjeta: rgba(22, 33, 62, 0.88);
     --texto-principal: #e0e0e0;
-    --acento: #f9c60f;
+    /* --acento: #f9c60f; */
+    --acento: #20DFB3;
     --acento-hover: #fcd34d;
     --error: #ef476f;
     --exito: #06d6a0;
+    --amarillo: #FEFE00;
 }
 
 * {
@@ -26,8 +28,16 @@ html, body {
 }
 
 body {
-    background-color: var(--fondo-principal);
+    background: url('assets/fondo.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom center;
     color: var(--texto-principal);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    padding-top: 70px;
+}
+
+h2 {
+    color: #20DFB3;
 }
