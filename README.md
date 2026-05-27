@@ -34,3 +34,8 @@ Aplicación Sala de Juegos para materia Programación IV
 - Juego: Preguntados
 - Juego: Simón Dice
 - Listados de resultados y puntajes de juegos.
+
+# Sprint 5
+- Encuesta para los usuarios
+- Sección con los resultados de las encuestas para administradores
+- Transiciones entre componentes
