@@ -6,8 +6,9 @@
     }
     <button routerLink="quien-soy">Quien Soy</button>
     @if (haySesion()) {
-
-        
+        @if (esAdmin()) {
+            <button routerLink="home/resultados-encuesta">Resultados de Encuestas</button>
+        }
         <button (click)="cerrarSesion()">Cerrar Sesión</button>
     }
     <p class="nombre-usuario">{{ nombre() }} {{ apellido() }}</p>

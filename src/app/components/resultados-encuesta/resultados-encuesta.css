@@ -1,0 +1,50 @@
+h2 {
+    color: var(--acento);
+    text-align: center;
+    margin: 20px 0;
+}
+.tabla-contenedor {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 16px;
+    background-color: var(--fondo-tarjeta);
+    border-radius: 12px;
+    margin: 0 auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--texto-principal);
+}
+th, td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #334155;
+    text-align: left;
+    font-size: 14px;
+}
+th {
+    background-color: var(--fondo-principal);
+    color: var(--acento);
+    font-weight: bold;
+}
+.cargando, .sin-resultados {
+    text-align: center;
+    color: var(--texto-secundario);
+}
+.error {
+    text-align: center;
+    color: var(--error);
+    font-weight: bold;
+}
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 24px;
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}

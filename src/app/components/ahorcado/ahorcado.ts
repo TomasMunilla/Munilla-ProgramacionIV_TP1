@@ -14,17 +14,17 @@ export class Ahorcado implements OnInit {
     private authService = inject(AuthService);
     private supabaseService = inject(SupabaseService);
 
-    private palabras:string[] = ['AMIGOS', 'CAMPERA', "PELOTA","ELEFANTE","LOBO","COLECTIVO","COMPUTADORA","ARQUITECTURA","CAFE","CELULAR","PERRO","VENTANA","REMERA","ZAPATILLAS","ESCRITORIO"]; 
+    protected palabras:string[] = ['AMIGOS', 'CAMPERA', "PELOTA","ELEFANTE","LOBO","COLECTIVO","COMPUTADORA","ARQUITECTURA","CAFE","CELULAR","PERRO","VENTANA","REMERA","ZAPATILLAS","ESCRITORIO"]; 
     
-    private indicePalabraActual: number = 0;
-    private palabraActual: string[] = [];       // palabra actual separada en letras
-    private letrasAdivinadas: string[] = [];    // letras que el usuario lleva acertadas
-    private letrasProbadas: string[] = [];      // letras que el usuario ha seleccionado (acertadas o no)
-    private intentosFallidos = 0;
-    private maxIntentos = 6;
+    protected indicePalabraActual: number = 0;
+    protected palabraActual: string[] = [];       // palabra actual separada en letras
+    protected letrasAdivinadas: string[] = [];    // letras que el usuario lleva acertadas
+    protected letrasProbadas: string[] = [];      // letras que el usuario ha seleccionado (acertadas o no)
+    protected intentosFallidos = 0;
+    protected maxIntentos = 6;
 
     private tiempoInicio: number = 0; 
-    private tiempoTranscurrido: number = 0; 
+    protected tiempoTranscurrido: number = 0; 
 
     protected mostrarMensajeVictoria = signal(false);
     protected mostrarMensajeDerrota = signal(false);

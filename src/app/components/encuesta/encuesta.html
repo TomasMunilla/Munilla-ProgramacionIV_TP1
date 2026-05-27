@@ -1,0 +1,41 @@
+<h2>Encuesta</h2>
+@if (!enviado) {
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" [(ngModel)]="nombre" required>
+        <label>Apellido:</label>
+        <input type="text" name="apellido" [(ngModel)]="apellido" required>
+        <label>Edad:</label>
+        <input type="number" name="edad" [(ngModel)]="edad" required>
+        <label>Teléfono:</label>
+        <input type="text" name="telefono" [(ngModel)]="telefono" required>
+
+        <hr>
+
+        <p>¿Qué te pareció la aplicación?</p>
+        <textarea name="opinion" [(ngModel)]="opinion" required></textarea>
+
+        <p>¿Qué juegos te gustaron más?</p>
+        <label><input type="checkbox" [(ngModel)]="juegosGustados.ahorcado" name="ck_ahorcado"> Ahorcado</label>
+        <label><input type="checkbox" [(ngModel)]="juegosGustados.mayorMenor" name="ck_mayor"> Mayor o Menor</label>
+        <label><input type="checkbox" [(ngModel)]="juegosGustados.preguntados" name="ck_preguntados"> Preguntados</label>
+        <label><input type="checkbox" [(ngModel)]="juegosGustados.simonDice" name="ck_simon"> Simón Dice</label>
+
+        <p>¿Recomendarías la aplicación a otros?</p>
+        <label><input type="radio" name="recomendaria" [(ngModel)]="recomendaria" value="si"> Sí</label>
+        <label><input type="radio" name="recomendaria" [(ngModel)]="recomendaria" value="no"> No</label>
+        <label><input type="radio" name="recomendaria" [(ngModel)]="recomendaria" value="tal_vez"> Tal vez</label>
+        <button type="submit">Enviar encuesta</button>
+    </form>
+
+    @if (mensajeError) {
+        <p class="error">{{ mensajeError }}</p>
+    }
+}
+
+@if (enviado) {
+    <div class="exito-container">
+        <h2>Respuesta enviada</h2>
+        <button (click)="salir()">Salir</button>
+    </div>
+}

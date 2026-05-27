@@ -1,47 +1,42 @@
-<h2>Últimos Resultados</h2>
-
+<h2>Ranking</h2>
 <div class="seccion">
     <h3>Ahorcado</h3>
     @if (partidasAhorcado().length === 0) {
         <p>Sin partidas</p>
     } @else {
-        @for (partida of partidasAhorcado(); track partida.id) {
-            <p>Resultado: {{ partida.resultado }} | Letras: {{ partida.letras_seleccionadas }} | Tiempo: {{ partida.tiempo_segundos }}s</p>
-        }                                           <!-- cada letra que el jugador toco antes de ganar o perder-->
+        @for (partida of partidasAhorcado(); track partida.id; let i = $index) {
+            <p>{{ i + 1 }}° - {{ partida.usuarios?.nombre }} {{ partida.usuarios?.apellido }} - {{ partida.resultado }} ({{ partida.tiempo_segundos }}s)</p>
+        }
     }
 </div>
-
 <div class="seccion">
     <h3>Mayor o Menor</h3>
     @if (partidasMayorMenor().length === 0) {
         <p>Sin partidas</p>
     } @else {
-        @for (partida of partidasMayorMenor(); track partida.id) {
-            <p>Aciertos: {{ partida.aciertos }}</p>
+        @for (partida of partidasMayorMenor(); track partida.id; let i = $index) {
+            <p>{{ i + 1 }}° - {{ partida.usuarios?.nombre }} {{ partida.usuarios?.apellido }} - {{ partida.aciertos }} aciertos</p>
         }
     }
 </div>
-
 <div class="seccion">
     <h3>Preguntados</h3>
     @if (partidasPreguntados().length === 0) {
         <p>Sin partidas</p>
     } @else {
-        @for (partida of partidasPreguntados(); track partida.id) {
-            <p>Aciertos: {{ partida.aciertos }} / {{ partida.total_preguntas }}</p>
+        @for (partida of partidasPreguntados(); track partida.id; let i = $index) {
+            <p>{{ i + 1 }}° - {{ partida.usuarios?.nombre }} {{ partida.usuarios?.apellido }} - {{ partida.aciertos }}/{{ partida.total_preguntas }}</p>
         }
     }
 </div>
-
 <div class="seccion">
     <h3>Simón Dice</h3>
     @if (partidasSimonDice().length === 0) {
         <p>Sin partidas</p>
     } @else {
-        @for (partida of partidasSimonDice(); track partida.id) {
-            <p>Puntaje: {{ partida.puntaje }}</p>
+        @for (partida of partidasSimonDice(); track partida.id; let i = $index) {
+            <p>{{ i + 1 }}° - {{ partida.usuarios?.nombre }} {{ partida.usuarios?.apellido }} - {{ partida.puntaje }} pts</p>
         }
     }
 </div>
-
 <button (click)="salir()">Salir</button>

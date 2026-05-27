@@ -41,3 +41,18 @@ body {
 h2 {
     color: #20DFB3;
 }
+
+/* Animaciones: */
+::view-transition-old(root) {
+    animation: my-old 500ms ease-out !important;
+}
+::view-transition-new(root) {
+    animation: my-new 500ms ease-out !important;
+}
+@keyframes my-old {
+    to { opacity: 0; transform: scale(1.1); }
+}
+@keyframes my-new {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}

@@ -2,12 +2,12 @@
 
 <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <label for="email">Email: </label>
-    <input type="email" name="email" ngModel required>
+    <input type="email" name="email" [(ngModel)]="email" required>
 
     <label for="password">Contraseña: </label>
-    <input type="password" name="password" ngModel required>
+    <input type="password" name="password" [(ngModel)]="password" required> <!--ngModel bidireccional-->
     
-    <button type="submit" [disabled]="form.invalid">Iniciar Sesión</button>
+    <button type="submit">Iniciar Sesión</button>
 </form>
 
 <hr>
