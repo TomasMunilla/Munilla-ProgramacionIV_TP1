@@ -21,35 +21,33 @@ export class Listados implements OnInit {
 
     async ngOnInit() {
         
-        const email = this.authService.sesionActiva()!.email; // con el mail del usuario logueado filtro solo sus partidas
-        
         const { data: a } = await this.supabaseService.supabase // a es un array de objetos, donde cada objeto es una fila de la tabla partidas_ahorcado que correspondan con el usuario
             .from('partidas_ahorcado')
-            .select('*')
-            .eq('usuario_email', email)
-            .order('fecha', { ascending: false })
-            .limit(5);
+            .select('*, usuarios(nombre, apellido)')
+            .eq('resultado', 'victoria')
+            .order('tiempo_segundos', { ascending: true })
+            .limit(4);
         if (a) this.partidasAhorcado.set(a);
         
         const { data: b } = await this.supabaseService.supabase
-            .from('partidas_mayor_menor').select('*')
-            .eq('usuario_email', email)
-            .order('fecha', { ascending: false })
-            .limit(5);
+            .from('partidas_mayor_menor')
+            .select('*, usuarios(nombre, apellido)')
+            .order('aciertos', { ascending: false })
+            .limit(4);
         if (b) this.partidasMayorMenor.set(b);
         
         const { data: c } = await this.supabaseService.supabase
-            .from('partidas_preguntados').select('*')
-            .eq('usuario_email', email)
-            .order('fecha', { ascending: false })
-            .limit(5);
+            .from('partidas_preguntados')
+            .select('*, usuarios(nombre, apellido)')
+            .order('aciertos', { ascending: false })
+            .limit(4);
         if (c) this.partidasPreguntados.set(c);
         
         const { data: d } = await this.supabaseService.supabase
             .from('partidas_simon_dice')
-            .select('*').eq('usuario_email', email)
-            .order('fecha', { ascending: false })
-            .limit(5);
+            .select('*, usuarios(nombre, apellido)')
+            .order('puntaje', { ascending: false })
+            .limit(4);
         if (d) this.partidasSimonDice.set(d);
     }
 

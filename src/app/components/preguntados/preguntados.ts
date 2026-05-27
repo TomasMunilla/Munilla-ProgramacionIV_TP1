@@ -18,7 +18,7 @@ export class Preguntados implements OnInit {
 
     private preguntas: any[] = [];
     private indicePreguntaActual: number = 0;
-    private aciertos: number = 0;
+    protected aciertos: number = 0;
 
     protected preguntaActual = signal<string>('');
     protected respuestaCorrecta = signal<string>('');

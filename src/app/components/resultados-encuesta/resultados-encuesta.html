@@ -1,0 +1,41 @@
+<h2>Resultados de la Encuesta</h2>
+@if (cargando) {
+    <p class="cargando">Cargando...</p>
+}
+@if (error) {
+    <p class="error">{{ error }}</p>
+}
+@if (!cargando && respuestas.length === 0) {
+    <p class="sin-resultados">No hay respuestas todavía.</p>
+}
+<div class="tabla-contenedor">
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Teléfono</th>
+                <th>Opinión</th>
+                <th>Juegos que gustaron</th>
+                <th>Recomendaría</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (r of respuestas; track r.id) {
+                <tr>
+                    <td>{{ r.usuario_email }}</td>
+                    <td>{{ r.nombre }}</td>
+                    <td>{{ r.apellido }}</td>
+                    <td>{{ r.edad }}</td>
+                    <td>{{ r.telefono }}</td>
+                    <td>{{ r.respuestas?.opinion }}</td>
+                    <td>{{ r.respuestas?.juegos_gustados?.join(', ') }}</td>
+                    <td>{{ r.respuestas?.recomendaria }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<button (click)="volver()">Volver</button>

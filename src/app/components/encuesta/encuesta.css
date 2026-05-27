@@ -1,0 +1,72 @@
+h2 {
+    color: var(--acento);
+    text-align: center;
+    margin: 20px 0;
+}
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: var(--fondo-tarjeta);
+    border-radius: 12px;
+}
+label {
+    display: block;
+    margin: 10px 0 4px;
+    font-size: 14px;
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    background-color: var(--fondo-principal);
+    border: 1px solid #334155;
+    border-radius: 6px;
+    color: var(--texto-principal);
+    font-size: 15px;
+}
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+hr {
+    border: none;
+    border-top: 1px solid #334155;
+    margin: 16px 0;
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 16px;
+}
+.error { color: var(--error); text-align: center; font-weight: bold; margin-top: 12px; }
+
+.exito-container {
+    text-align: center;
+    padding: 60px 20px;
+}
+.exito-container h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+.exito-container button {
+    padding: 12px 32px;
+    background-color: var(--acento);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}

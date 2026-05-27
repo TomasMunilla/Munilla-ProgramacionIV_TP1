@@ -1,6 +1,6 @@
 <div class="chat-container">
 
-    <div class="mensajes">
+    <div class="mensajes" #mensajesContainer>
         @for (mensaje of mensajes(); track mensaje.id) {
         <div [class.mensaje-propio]="esMensajePropio(mensaje)" [class.mensaje-otro]="!esMensajePropio(mensaje)">
             <p class="email">{{ mensaje.usuario_email }}</p>

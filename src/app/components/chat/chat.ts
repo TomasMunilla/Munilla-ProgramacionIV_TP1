@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit, OnDestroy } from '@angular/core';
+import { Component, inject, signal, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SupabaseService } from '../../services/supabase-service/supabase-service';
 import { AuthService } from '../../services/auth-service/auth-service';
@@ -24,6 +24,8 @@ export class Chat implements OnInit, OnDestroy {
     private supabaseService = inject(SupabaseService);
     private authService = inject(AuthService);
     private router = inject(Router);
+
+    @ViewChild('mensajesContainer') private mensajesContainer!: ElementRef<HTMLElement>
     
     protected mensajes = signal<Mensaje[]>([]); // Lista de mensajes
     protected textoMensaje = ''; // Texto del input
@@ -31,6 +33,7 @@ export class Chat implements OnInit, OnDestroy {
     
     async ngOnInit() {
         await this.cargarMensajes();
+        this.scrollAlFinal();
         this.suscribirseAChat();
     }
 
@@ -52,6 +55,7 @@ export class Chat implements OnInit, OnDestroy {
                 (payload) => { // payload contiene el nuevo mensaje insertado en la tabla 'mensajes_chat'
                     const mensajeNuevo = payload.new as Mensaje;
                     this.mensajes.update(msjs => [...msjs, mensajeNuevo]); // cuando llega un nuevo mensaje, lo agrego a la lista de mensajes
+                    this.scrollAlFinal();
                 }
             )
             .subscribe(); // me suscribo a los cambios en la tabla 'mensajes_chat'
@@ -67,10 +71,18 @@ export class Chat implements OnInit, OnDestroy {
             mensaje: this.textoMensaje,
         });
         this.textoMensaje = '';
+        this.scrollAlFinal();
     }
     
     esMensajePropio(mensaje: Mensaje): boolean { // verifico si el mensaje lo envio el usuario actual
         return mensaje.usuario_id === this.authService.sesionActiva()?.id;
+    }
+
+    private scrollAlFinal() {
+        setTimeout(() => { // espero a que angular termine de renderizar
+            const chat = this.mensajesContainer?.nativeElement; // agarro el div del chat
+            if (chat) chat.scrollTop = chat.scrollHeight; // si existe, lo mando al fondo
+        });
     }
     
     ngOnDestroy() { // limpio la suscripción al salir del componente

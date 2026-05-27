@@ -14,8 +14,8 @@ export class SimonDice {
     private router = inject(Router);
     private authService = inject(AuthService)
 
-    private coloresDisponibles = ['rojo', 'verde', 'azul', 'amarillo'];
-    private secuencia: string[] = []; // la secuencia de colores que el jugador tiene que repetir
+    protected coloresDisponibles = ['rojo', 'verde', 'azul', 'amarillo'];
+    protected secuencia: string[] = []; // la secuencia de colores que el jugador tiene que repetir
     private indiceJugador = 0;  // en que paso de la secuencia esta el jugador
 
     protected puntaje = signal(0);

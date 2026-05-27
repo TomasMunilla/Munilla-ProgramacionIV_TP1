@@ -42,3 +42,4 @@ router-outlet + * {
     background: var(--fondo-tarjeta);
     border-radius: 12px;
 }
+

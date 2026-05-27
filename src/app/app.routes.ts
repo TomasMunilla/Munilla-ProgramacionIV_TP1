@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { loginGuard } from './guards/login/login-guard';
 import { noRegistradoGuard } from './guards/no-registrado/no-registrado-guard';
+import { adminGuard } from './guards/admin-guard/admin-guard';
 // import { Home } from './components/home/home';
 // import { Login } from './components/login/login';
 // import { Registro } from './components/registro/registro';
@@ -57,6 +58,16 @@ export const routes: Routes = [
         path: 'home/listados',
         loadComponent: () => import('./components/listados/listados').then((m) => m.Listados),
         canActivate: [noRegistradoGuard]
+    },
+    {
+        path: 'home/encuesta',
+        loadComponent: () => import('./components/encuesta/encuesta').then((m) => m.Encuesta),
+        canActivate: [noRegistradoGuard]
+    },
+    {
+        path: 'home/resultados-encuesta',
+        loadComponent: () => import('./components/resultados-encuesta/resultados-encuesta').then((m) => m.ResultadosEncuesta),
+        canActivate: [noRegistradoGuard, adminGuard]
     },
     {path: '**', loadComponent: () => import('./components/error/error').then((m) => m.Error)}
 
